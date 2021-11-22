@@ -1,0 +1,16 @@
+
+
+button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid black; /* Green border */
+  color: white; /* White text */
+  padding:10px 14px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  /*margin-left: 20px;*/
+  margin: 1px;
+
+}
+  
+
+
+

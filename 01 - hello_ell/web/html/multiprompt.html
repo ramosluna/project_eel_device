@@ -1,0 +1,32 @@
+<!--
+Este não é um arquivo HTML independente. Ele deve ser chamado por showModalDialog().
+Ele espera que window.dialogArguments seja um array de strings.
+O primeiro elemento do array é exibido na parte superior da caixa de diálogo.
+Cada elemento restante é um rótulo para um campo de entrada de texto de uma linha.
+Retorna um array de valores do campo de entrada quando o usuário clica em OK.
+Use este arquivo com código como o seguinte:
+var p = showModalDialog("multiprompt.html",
+["Enter 3D point coordinates", "x", "y", "z"],
+"dialogwidth:400; dialogheight:300; resizable:yes");
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script src="controlPrincipal.js" type="text/javascript"></script>
+<form>
+
+<fieldset id="fields"> <!-- Corpo do diálogo preenchido pelo script a seguir -->
+
+<div style="text-align:center"> <!-- Botões para fechar a caixa de diálogo -->
+
+    <p id="dSet">DSet:</p>
+    <label>comments:</label>
+<input type="text" id="comentario" maxlength="20" size="40" ><br><br>
+    <button onclick="okay()">Okay</button> <!-- Configura o valor de retorno e fecha -->
+
+    <button onclick="fail()">Fail</button> <!-- Fecha sem nenhum valor de retorno -->
+</div>
+    </fieldset>
+
+</form>
+</head>
