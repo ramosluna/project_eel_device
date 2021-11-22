@@ -1,0 +1,5 @@
+import eel
+
+eel.alerta()
+
+
