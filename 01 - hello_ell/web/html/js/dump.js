@@ -1,13 +1,68 @@
 
-function js_dSet(){
-     eel.dataSet()
+eel.expose(js_showAnaliseEprom363);
+function js_showAnaliseEprom363(){
+    var target = document.getElementById('relatorio')
+    target.setAttribute('id','show')
+    var ecuSNumb='';
+    var ecuHNumb='';
 
+// trata o ECuSerialNumber
+    for ( var x = 491; x<503; x++){//0x01Eb
+         ecuSNumb +=  document.getElementById(x).innerHTML
+    }
+    document.getElementById('ECUSerialNumber').value = ecuSNumb;
+    document.getElementById("ECUSerialNumberDec").value = ecuSNumb.slice(16,24);
+    ecuSNumb='';    
+//fim
+
+//trata FCA_SW_Number
+for ( var x = 469; x < 480; x++){
+    ecuSNumb +=  document.getElementById(x).innerHTML
+    }
+    document.getElementById('FCA_SW_Number').value = ecuSNumb;
+    var fatiar = '';
+    var end = 2;
+    for(x=0;x<ecuSNumb.length;x+=2){
+        fatiar += ecuSNumb.slice(x,end);
+        fatiar += ' ';
+        end +=2;
+    }
+    let convert = convertHexToASCII(fatiar)
+    document.getElementById("FCA_SW_NumberDec").value = convert
+
+//trata FCA_HW_Number
+for ( var x = 480; x < 491; x++){
+    ecuHNumb +=  document.getElementById(x).innerHTML
+    }
+    document.getElementById("FCA_HW_Number").value = ecuHNumb;
+    var fatiar1 = '';
+    var end1 = 2;
+     for(x=0;x<ecuHNumb.length;x+=2){
+        fatiar1 += ecuHNumb.slice(x,end1);
+        fatiar1 += ' ';
+        end1 += 2;
+    }
+    let convert1 = convertHexToASCII(fatiar1)
+    document.getElementById("FCA_HW_NumberDec").value = convert1
 }
+//}
+
+function convertHexToASCII(hexString){
+    let stringOut = '';
+    hexString.split(' ').map((i) => {
+    tempAsciiCode = parseInt(i, 16);
+    stringOut = stringOut + String.fromCharCode(tempAsciiCode);
+    });
+    return stringOut.slice(0,-1)
+}
+
+function js_dSet(){
+ eel.dataSet()
+ }
 
 function loadDump(){
     limpar()
     eel.dumpHtml()
-
 }
 
 function canoe(){
@@ -82,3 +137,5 @@ function js_imprimirHexSeForDiferente(address, valoresdados){
 
         }
 }
+
+

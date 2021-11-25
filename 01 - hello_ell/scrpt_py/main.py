@@ -2,7 +2,7 @@ import eel
 from easygui import *
 from onix import *
 from dump import *
-from fiat_x6h import *
+from fiat_363 import *
 
 eel.init("../web/html")
 
@@ -15,7 +15,7 @@ def openProject(project, nameSaveDump=None):
         #diaG()
         openPage()
         #getDump(nameSaveDump)
-        dumpFiatX6H()
+        dumpFiat363()
 
     elif project == '2':  # ONIX
         print("call onix")

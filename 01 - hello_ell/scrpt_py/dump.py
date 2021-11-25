@@ -147,7 +147,7 @@ def dataSet():
             # eel.js_imprimirHexSeForDiferente(address, dadosHex)
 
 
-def dumpFiatX6H():
+def dumpFiat363():
     folder_path = r'D:\Simulações\Fiat_363_v1.22'
     file_type = '\*hex'  # se nao quiser filtrar por extenção deixe apenas *
     files = glob.glob(folder_path + file_type)
@@ -194,7 +194,9 @@ def dumpFiatX6H():
             # Call Javascript function, and pass explicit callback function
             eel.expose()
             eel.js_imprimirHex(address, dadosHex)
-
+    eel.sleep(3)
+    eel.expose()
+    eel.js_showAnaliseEprom363()
 
 def send_file_dump_analise(nameSaveDump):
     address = 0

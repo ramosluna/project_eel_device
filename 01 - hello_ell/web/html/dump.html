@@ -9,7 +9,7 @@
         <script src="js/dump.js" type="text/javascript"></script>
     </head>
 
-<div class="wrapper" id="relatorio">
+<div class="wrapper" id="bg">
 
     <div class="btn-group">
     <table width="650" border="3px">
@@ -9381,28 +9381,28 @@
 
     </div>
 
-    <div class = "btn-group" >
+    <div class = "btn-group" id="relatorio" >
     
         <fieldset1 >
             <legend> ECUSerialNumber (0x01EB) </legend>
-            <label>number : </label > <input type= "text" disabled   name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled name="Name" />
+            <label>number : </label > <input id="ECUSerialNumber"  disabled  type= "text"  name="Name" />
+            <label>Dec : </label>   <input type= "text" id="ECUSerialNumberDec" disabled name="Name" />
                
         </fieldset1>
        
         <fieldset2 >
           
             <legend> FCA SW Number ( 0x01D5 ) </legend>
-            <label>number : </label > <input type= "text" disabled  name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled   name="Name" />
+            <label>number : </label > <input type= "text" id="FCA_SW_Number" disabled  name="Name" />
+            <label>Dec : </label>   <input type= "text" disabled id= "FCA_SW_NumberDec" name="Name" />
                
         </fieldset2>
         
         <fieldset3 >
           
             <legend> FCA HW Number ( 0x01E0 ) </legend>
-            <label>number : </label > <input type= "text" disabled  name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled   name="Name" />
+            <label>number : </label > <input id="FCA_HW_Number" type= "text" disabled  name="Name" />
+            <label>Dec : </label>   <input id="FCA_HW_NumberDec" type= "text" disabled   name="Name" />
                   
         </fieldset3>
     
