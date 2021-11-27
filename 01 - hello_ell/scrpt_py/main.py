@@ -32,7 +32,7 @@ def openProject(project, nameSaveDump=None):
     else:
         msgbox('Select the Project', 'Project')
 
-eel.start("main.html",
+eel.start("main.html",  
           mode='chrome',
           host='localhost',
           block=True,

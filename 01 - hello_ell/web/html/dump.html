@@ -9,7 +9,7 @@
         <script src="js/dump.js" type="text/javascript"></script>
     </head>
 
-<div class="wrapper" id="bg">
+<div class="wrapper" id="bg" >
 
     <div class="btn-group">
     <table width="650" border="3px">
@@ -9409,58 +9409,58 @@
         <fieldset4 >
           
             <legend> EcuIdentFiatSparePartNo (0x0195): </legend>
-            <label>number : </label > <input type= "text" disabled   name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled   name="Name" />
+            <label>number : </label > <input  id="EcuIdentFiatSparePartNo_number" type= "text" disabled   name="Name" />
+            <label>Dec : </label>   <input id="EcuIdentFiatSparePartNo_Dec" type= "text" disabled   name="Name" />
                
         </fieldset4>    
         
         <fieldset5 >
           
             <legend> EcuIdentEcuHWNo (0x01B1): </legend> 
-            <label>number : </label > <input type= "text" disabled name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled name="Name" />
+            <label>number : </label > <input id="EcuIdentEcuHWNo_number" type= "text" disabled name="Name" />
+            <label>Dec : </label>   <input id="EcuIdentEcuHWNo_Dec" type= "text" disabled name="Name" />
                     
         </fieldset5>
        
         <fieldset6 >
           
             <legend>ApplDataFingerprint (0x0188): </legend> 
-            <label>number : </label > <input type= "text" disabledname="Name" />
-            <label>Dec : </label>   <input type= "text" disabled name="Name" />
+            <label>number : </label > <input id="ApplDataFingerprint_number" type= "text" disabled name="Name" />
+            <label>Dec : </label>   <input id="ApplDataFingerprint_Dec" type= "text" disabled name="Name" />
                     
         </fieldset6>
        
         <fieldset7 >
           
             <legend>ApplSWFingerprint (0x017B): </legend> 
-            <label>number : </label > <input type= "text" disabled  name="Name" />
-            <label>Dec : </label>   <input type= "text" disabled name="Name" />
+            <label>number : </label > <input id="ApplSWFingerprint_number" type= "text" disabled  name="Name" />
+            <label>Dec : </label>   <input id="ApplSWFingerprint_Dec" type= "text" disabled name="Name" />
                     
         </fieldset7>
       
         <fieldset8 >
           
             <legend>BootSWFingerprint (0x016E): </legend>
-            <label>number : </label > <input type= "text" disabled name="Name" />
-            <label>Dec : </label>   <input type= "text" disabledname="Name" />
+            <label>number : </label > <input id="BootSWFingerprint_number" type= "text" disabled name="Name" />
+            <label>Dec : </label>   <input id="BootSWFingerprint_Dec" type= "text" disabledname="Name" />
                     
         </fieldset8>
        
         <fieldset9 >
             <legend>Dataset SET (0xxxx): </legend> 
             <div>
-                <label>number : </label >
-                <input type= "text" disabled name="Name" />
-                <label>Asci :</label>   
-                <input type= "text" disabled name="Name" /> 
-            </div>
+                <label >Numb:</label >
+                    <input  id="DataSet_number" type= "text" disabled   name="Name" />
+                    <label >Numb : </label>   
+                    <input id="DataSet_index_number" type= "text" disabled  name="Name" />
+            </div> 
           
             <div>
 
-                <label >index :</label >
-                <input   type= "text" disabled   name="Name" />
-                <label >Asci: </label>   
-                <input type= "text" disabled  name="Name" />
+                <label id="label9" >Index :</label >
+                <input  id="DataSet_Asci_number" type= "text" disabled   name="Name" /> 
+                <label >Index : </label>   
+                <input id="DataSet_Asci_index" type= "text" disabled  name="Name" />
             </div>                 
         </fieldset9>
 
@@ -9475,9 +9475,9 @@
           
             <div>
                 <label >index :</label >
-                <input   type= "text" disabled   name="Name" />
+                <input   type= "text" disabled name="Name" />
                 <label >Asci: </label>   
-                <input type= "text" disabled  name="Name" />
+                <input type= "text" disabled name="Name" />
             </div>                 
         </fieldset10>
        

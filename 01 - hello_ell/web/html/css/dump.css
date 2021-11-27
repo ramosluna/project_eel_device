@@ -2,6 +2,9 @@
   visibility: show;
   /*visibility: hidden;  show*/
 }
+#bg{
+  background-color: #9b9b9b;
+}
 
 button {
   background-color: #04AA6D; /* Green background */
@@ -30,7 +33,6 @@ input{
 width:38%
 }
 
-
 fieldset2{
   background-color: rgb(236, 147, 39);
   border: 2px solid rgb(90, 90, 82);
@@ -46,6 +48,7 @@ fieldset3{
   position: absolute;left: 700px;  bottom: auto; top: 370px;
   text-align: center;
 }
+
 fieldset4{
   background-color: rgb(236, 147, 39);
   border: 2px solid rgb(90, 90, 82);
@@ -53,6 +56,7 @@ fieldset4{
   position: absolute;left: 700px;  bottom: auto; top: 440px;
   text-align: center;
 }
+
 fieldset5{
   background-color: rgb(245, 174, 87);
   border: 2px solid rgb(90, 90, 82);
@@ -64,14 +68,15 @@ fieldset5{
 fieldset6{
   background-color: rgb(107, 207, 224);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 45px; 
+  width: 590px; height: 45px;
   position: absolute;left: 700px;  bottom: auto; top: 580px;
   text-align: center;
 }
+
 fieldset7{
   background-color: rgb(107, 207, 224);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 45px; 
+  width:  590px; height: 45px;
   position: absolute;left: 700px;  bottom: auto; top: 650px;
   text-align: center;
 }
@@ -79,7 +84,7 @@ fieldset7{
 fieldset8{
   background-color: rgb(107, 207, 224);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 45px; 
+  width: 590px; height: 45px;
   position: absolute;left: 700px;  bottom: auto; top: 720px;
   text-align: center;
 }
@@ -87,32 +92,40 @@ fieldset8{
 fieldset9{
   background-color: rgb(177, 204, 160);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 80px; 
+  width:  590px; height: 80px;
   position: absolute;left: 700px;  bottom: auto; top: 790px;
   text-align: center;
   
+}
+#DataSet_Asci_number{
+  width: 20%;
+}
+#DataSet_Asci_index{
+  width: 20%;
 }
 
 fieldset10{
   background-color: rgb(177, 204, 160);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 80px; 
+  width: 590px; height: 80px;
   position: absolute;left: 700px;  bottom: auto; top: 900px;
   text-align: center;
   
 }
+
 fieldset11{
   background-color: rgb(177, 204, 160);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 80px; 
+  width: 590px; height: 80px;
   position: absolute;left: 700px;  bottom: auto; top: 900px;
   text-align: center;
   
 }
+
 fieldset12{
   background-color: rgb(139, 139, 124);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 120px; 
+  width: 590px; height: 120px;
   position: absolute;left: 700px;  bottom: auto; top:1100px;
   text-align: center;
   
@@ -121,15 +134,16 @@ fieldset12{
 fieldset13{
   background-color: rgb(153, 153, 135);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 140px; 
+  width:  590px; height: 140px;
   position: absolute;left: 700px;  bottom: auto; top:1240px;
   text-align: center;
   
 }
+
 fieldset14{
   background-color: rgb(177, 204, 160);
   border: 2px solid rgb(90, 90, 82);
-  width: 500px; height: 80px; 
+  width: 590px; height: 80px;
   position: absolute;left: 700px;  bottom: auto; top: 1000px;
   text-align: center;
   
