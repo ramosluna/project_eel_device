@@ -128,18 +128,27 @@ for ( var x = 480; x < 491; x++){
         //"DataSet_Asci_index"
 
         document.getElementById("DataSet_number").value = getHexData;
+        document.getElementById("DataSet_index_number").value = getHexIndex;
 
-        var fatiar4 = '';
-        var end4 = 2;
+        var fatiar3 = '';
+        var end3 = 2;
+         for(x=0;x<getHexData.length;x+=2){
+            fatiar3 += getHexData.slice(x,end3);
+            fatiar3 += ' ';
+            end3 += 2;
+        }     
+        let convert4 = convertHexToASCII(fatiar3)
+        document.getElementById("DataSet_Asci_number").value = convert4
+
+        var fatiar3 = '';
+        var end3 = 2;
          for(x=0;x<getHexIndex.length;x+=2){
-            fatiar4 += getHexData.slice(x,end4);
-            fatiar4 += ' ';
-            end4 += 2;
+            fatiar3 += getHexIndex.slice(x,end3);
+            fatiar3 += ' ';
+            end3 += 2;
         }
-        let convert5 = convertHexToASCII(fatiar4)
-        document.getElementById("DataSet_Asci_Number").value = convert5
-
-        getHexPlanilha='';
+        let convert5 = convertHexToASCII(fatiar3)
+        document.getElementById("DataSet_Asci_index").value = convert5
 
 
 }
