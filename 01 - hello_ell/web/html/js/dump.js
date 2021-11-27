@@ -120,13 +120,6 @@ for ( var x = 480; x < 491; x++){
         for ( var x = 4264; x < 4266; x++){
             getHexIndex +=  document.getElementById(x).innerHTML
         }
-
-        //"DataSet_number"
-        //"DataSet_Asci_number"
-
-        //"DataSet_index_number"
-        //"DataSet_Asci_index"
-
         document.getElementById("DataSet_number").value = getHexData;
         document.getElementById("DataSet_index_number").value = getHexIndex;
 
@@ -150,6 +143,37 @@ for ( var x = 480; x < 491; x++){
         let convert5 = convertHexToASCII(fatiar3)
         document.getElementById("DataSet_Asci_index").value = convert5
 
+//Dataset BDS (0x164)
+    let getBdsData = '';
+    let getBDSIndex = '';
+        for ( var x = 4246; x < 4564; x++){
+            getBdsData +=  document.getElementById(x).innerHTML
+        }
+        for ( var x = 4564; x < 4566; x++){
+            getBDSIndex +=  document.getElementById(x).innerHTML
+        }
+        document.getElementById("BDS_number").value = getBDSData;
+        document.getElementById("BDS_index_number").value = getBDSIndex;
+
+        var fatiar3 = '';
+        var end3 = 2;
+         for(x=0;x<getBDSData.length;x+=2){
+            fatiar3 += getBDSData.slice(x,end3);
+            fatiar3 += ' ';
+            end3 += 2;
+        }     
+        let convert6 = convertHexToASCII(fatiar3)
+        document.getElementById("BDS_Asci_number").value = convert6
+
+        var fatiar3 = '';
+        var end3 = 2;
+         for(x=0;x<getBDSIndex.length;x+=2){
+            fatiar3 += getBDSIndex.slice(x,end3);
+            fatiar3 += ' ';
+            end3 += 2;
+        }
+        let convert7 = convertHexToASCII(fatiar3)
+        document.getElementById("BDS_Asci_index").value = convert7
 
 }
 
