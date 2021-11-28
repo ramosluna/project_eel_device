@@ -225,6 +225,6 @@ def send_file_dump_analise(nameSaveDump):
 
 
 def openPage():
-    eel.init("../web/html")
+    #eel.init("../web/html")
     eel.show('dump.html')
     eel.sleep(2)

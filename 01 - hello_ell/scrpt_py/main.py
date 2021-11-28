@@ -4,7 +4,8 @@ from onix import *
 from dump import *
 from fiat_363 import *
 
-eel.init("../web/html")
+#eel.init("../web/html")
+eel.init("01 - hello_ell/web/html")
 
 @eel.expose
 def openProject(project, nameSaveDump=None):
