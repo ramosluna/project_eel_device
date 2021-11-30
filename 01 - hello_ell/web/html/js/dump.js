@@ -292,9 +292,9 @@ function canoe(){
 //#region limpar
 function limpar(){
     console.log("caled clear")
-    for(var i=0; i<4112;i++){
+    for(var i=0; i<8288;i++){ // 4112
     //document.getElementById(i).style.backgroundColor = 'white' ;
-    document.getElementById(i).style.backgroundColor = "lightblue";
+    document.getElementById(i).style.backgroundColor = '#92a8d1';
     document.getElementById(i).style.color = "black";
     document.getElementById(i).innerHTML= "";
     document.getElementById('path').innerHTML = 'path Dumps:'

@@ -1,7 +1,0 @@
-div class = 'red' id = 'target'
-
-var target = document.getElementById('target')
-
-target.setAttribute('claass','hide') // 'red show'
-
-button.addEventListener('click','displaToggle',false)

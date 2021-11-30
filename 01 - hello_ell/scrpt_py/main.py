@@ -11,7 +11,7 @@ eel.init("01 - hello_ell/web/html")
 def openProject(project, nameSaveDump=None):
     print('open project')
     if project == '1':  # X6H/363/X6S
-        #startCANoe() #fiat
+        #startCANoeX6H() #fiat
         #runKeyStart()
         #diaG()
         openPage()

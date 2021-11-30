@@ -2,8 +2,7 @@ from easygui import *
 import eel
 import CANoe
 from easygui import *
-
-
+ 
 tuplaEspias = ('BCM_eBonnetSts', 'BCM_eRHatchSts', 'TT_PositionLights_sw', 'BCM_eHighBeamSts', 'BSM_eESCFailSts',
                'BCM_eIMMOCodeWarningLightSts', 'BSM_eFunctionFailSts', 'ECM_eOilLifeSts', 'TCM_eTransmFailSts',
                'BCM_eFrontFogLightSts','BCM_eParkBrakeSts', 'ECM_eOilPressureFailSts', 'ORC_eAirBagFailSts', 'TCM_eOilTemperatureSts',
@@ -49,6 +48,7 @@ def diaG():
     eel.sleep(1)
 
 def getDump(nameSalveDump):
+    nameSalveDump += nameSalveDump + '.hex'
     app.set_EnvVar('DIAG_RFDFileName', nameSalveDump)
     eel.sleep(2)
     app.set_EnvVar('DIAG_RFDReadFile', 1)

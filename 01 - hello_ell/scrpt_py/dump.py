@@ -63,17 +63,20 @@ def dumpHtml():
 
             # pega o comprimento
             sizeLinesRead = len(lines[sFORMATADO_DADOS])
-            lines = lines[sFORMATADO_DADOS]
+            lines01 = lines[sFORMATADO_DADOS]
 
             for cont in range(sizeLinesRead):
                 # formata os dados 32 byte
-                dadosHex = lines[cont]
+                dadostxt = lines01[cont]
+                dadosformatado = dadostxt[9:42]
 
                 # Call Javascript function, and pass explicit callback function
-                eel.js_imprimirHex(address, dadosHex)
+                eel.js_imprimirHex(address, dadosformatado)
 
                 address += 16
 
+        elif nameSalveDump[-3:] == 'bsk':
+            pass
 
 @eel.expose
 def dataSet():
@@ -132,20 +135,20 @@ def dataSet():
 
             # pega o comprimento
             sizeLinesRead = len(lines[sFORMATADO_DADOS])
-            lines = lines[sFORMATADO_DADOS]
+            lines01 = lines[sFORMATADO_DADOS]
 
             for cont in range(sizeLinesRead):
                 # formata os dados 32 byte
-                dadosHex = lines[cont]
+                dadostxt = lines01[cont]
+                dadosformatado = dadostxt[9:42]
 
                 # Call Javascript function, and pass explicit callback function
                 eel.expose()
-                eel.js_imprimirHexSeForDiferente(address, dadosHex)
+                eel.js_imprimirHexSeForDiferente(address, dadosformatado)
 
                 address += 16
             # eel.expose()
             # eel.js_imprimirHexSeForDiferente(address, dadosHex)
-
 
 def dumpFiat363():
     folder_path = r'D:\Simulações\Fiat_363_v1.22'

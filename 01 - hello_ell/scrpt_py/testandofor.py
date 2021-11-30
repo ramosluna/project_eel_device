@@ -1,5 +1,1 @@
-import eel
-
-eel.alerta()
-
-
+ 
