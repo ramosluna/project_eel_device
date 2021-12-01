@@ -2,6 +2,13 @@ from easygui import *
 import eel
 import CANoe
 from easygui import *
+tuplaEspias = ('BCM_eLHTurnSignalSts','BCM_eBonnetSts', 'BCM_eRHatchSts', 'TT_PositionLights_sw', 'BCM_eHighBeamSts', 'BSM_eESCFailSts',
+               'BCM_eIMMOCodeWarningLightSts', 'BSM_eFunctionFailSts', 'ECM_eOilLifeSts', 'TCM_eTransmFailSts',
+               'BCM_eFrontFogLightSts','BCM_eParkBrakeSts', 'ECM_eOilPressureFailSts', 'ORC_eAirBagFailSts', 'TCM_eOilTemperatureSts',
+               'BSM_eABSFailSts', 'ECM_eAlternatorFail','TT_SeatBelt_sw', 'ECM_eDPFSts', 'BCM_eElectricSteeringFailSts', 'ECM_eFpsActuated',
+               'GAU_eWaterTempWarn', 'BCM_eRHTurnSignalSts', 'BCM_eLowFuelWarningSts', 'BCM_ePAMSystemFault', 'ECM_eGPLGasolineMode',
+               'ECM_eEMSFailSts','ECM_eEMSFailSts', 'BSM_eFailSts', 'DASM_eFCWSts', 'ECM_eFuelWaterPresentSts', 'BCM_eDriverDoorSts',
+               'ECM_eGPLGasolineMode','MAIN_eKeyStat', 'ECM_eGlowPlugLampSts')
 
 tuplaNameEspia = ('High Beam','Parking', 'Abs', 'Eobd', 'Glow Plug Activation', 'Tpms', 'Esc','Front Fog Light',
                   'Auto High Bean', 'Coolant High Temperatura','Left Turn', 'Righ turn', 'Fuel Reserve',
@@ -15,6 +22,8 @@ def startCANoe363():
     try:
         global app
         app = CANoe.CANoe()
+        app.stop_Measurement()
+        eel.sleep(3)
         app.open_simulation(path)
         app.stop_Measurement()
         eel.sleep(3)
@@ -62,22 +71,15 @@ def versCluster():
     dataSet1 = app.get_EnvVar('DIAG_eVERDSVerMC')
     dataSet2 = app.get_EnvVar('DIAG_eVERDSIdxMC')
 
-def allTellTale(onORoff=0):
-    tuplaEspias = ('BCM_eBonnetSts', 'BCM_eRHatchSts', 'TT_PositionLights_sw', 'BCM_eHighBeamSts', 'BSM_eESCFailSts',
-               'BCM_eIMMOCodeWarningLightSts', 'BSM_eFunctionFailSts', 'ECM_eOilLifeSts', 'TCM_eTransmFailSts',
-               'BCM_eFrontFogLightSts','BCM_eParkBrakeSts', 'ECM_eOilPressureFailSts', 'ORC_eAirBagFailSts', 'TCM_eOilTemperatureSts',
-               'BSM_eABSFailSts', 'ECM_eAlternatorFail','TT_SeatBelt_sw', 'ECM_eDPFSts', 'BCM_eElectricSteeringFailSts', 'ECM_eFpsActuated',
-               'GAU_eWaterTempWarn', 'BCM_eRHTurnSignalSts','BCM_eLHTurnSignalSts', 'BCM_eLowFuelWarningSts', 'BCM_ePAMSystemFault', 'ECM_eGPLGasolineMode',
-               'ECM_eEMSFailSts','ECM_eEMSFailSts', 'BSM_eFailSts', 'DASM_eFCWSts', 'ECM_eFuelWaterPresentSts', 'BCM_eDriverDoorSts',
-               'ECM_eGPLGasolineMode','MAIN_eKeyStat', 'ECM_eGlowPlugLampSts',)
-    # all led
+def fullEspia(onORoff):
+       # all led
     for tupla in tuplaEspias:
-        eel.sleep(2)
+        eel.sleep(1)
         app.set_EnvVar(tupla, onORoff)
-        eel.sleep(2)
-        print(tupla)
-    eel.sleep(2)
+             
     #relatorio()
+    print('full espias')
+    eel.sleep(10)
 
 def tellTale(arrayDeSpias):
     eel.sleep(1)
@@ -92,3 +94,41 @@ def tellTale(arrayDeSpias):
         #repeat = boolbox("torned on ?", 'title', ("Yes", "No"),image="GLOW_PLUG.png")
 
     # listaRelatorioPassOrNo.append('Pass') #  add em sequência no array
+
+
+def Tacho():
+    app.set_EnvVar("MAIN_eKeyStat", 2)
+
+    app.set_EnvVar("GAU_eEngSpd", 0)
+    status = boolbox("RPM 0 ?", 'Tacho', ("Yes", "No"),    image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
+    app.set_EnvVar("GAU_eEngSpd", 1000)
+    status = boolbox("RPM 1000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
+    app.set_EnvVar("GAU_eEngSpd", 4000)
+    status = boolbox("RPM 4000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
+    app.set_EnvVar("GAU_eEngSpd", 8000)
+    status = boolbox("RPM 8000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
+    app.set_EnvVar("GAU_eEngSpd", 0)
+    #if status:
+        #listaRelatorioPassOrNo.append('Pass') #  add em sequência no array
+
+
+def Vel():
+    app.set_EnvVar("MAIN_eKeyStat", 2)
+
+    app.set_EnvVar("GAU_eVehSpd", 0) 
+    status = boolbox("Velocidade 0 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 20) 
+    status = boolbox("Velocidade 20 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 40) 
+    status = boolbox("Velocidade 40 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 60) 
+    status = boolbox("Velocidade 60 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 80) 
+    status = boolbox("Velocidade 80 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 100) 
+    status = boolbox("Velocidade 100 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 120) 
+    status = boolbox("Velocidade 120 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
+    app.set_EnvVar("GAU_eVehSpd", 220) 
+    status = boolbox("Velocidade 220 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG",cancel_choice=[True])
+    app.set_EnvVar("GAU_eVehSpd", 0)

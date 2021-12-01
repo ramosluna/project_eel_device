@@ -7,6 +7,8 @@ from fiat_363 import *
 #eel.init("../web/html")
 eel.init("01 - hello_ell/web/html")
 
+
+
 @eel.expose
 def openProject(project, nameSaveDump=None):
     print('open project')
@@ -16,8 +18,11 @@ def openProject(project, nameSaveDump=None):
         diaG()
         openPage()
         #getDump(nameSaveDump)
-        dumpFiat363()
-        allTellTale(True)
+        #dumpFiat363()
+        #fullEspia(1)
+        Tacho()
+        Vel()
+         
 
     elif project == '2':  # ONIX
         print("call onix")

@@ -16,4 +16,5 @@ dataSet():
 
 TaskId004: add telltalle, rpm e vel
 
-fiat_363.py/allTellTale(onORoff=0) -> 
+fiat_363.py/fullEspia(boole) -> OK
+
