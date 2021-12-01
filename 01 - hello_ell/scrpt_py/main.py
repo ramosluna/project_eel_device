@@ -11,13 +11,13 @@ eel.init("01 - hello_ell/web/html")
 def openProject(project, nameSaveDump=None):
     print('open project')
     if project == '1':  # X6H/363/X6S
-        #startCANoeX6H() #fiat
-        #runKeyStart()
-        #diaG()
+        startCANoe363() #fiat
+        runKeyStart()
+        diaG()
         openPage()
         #getDump(nameSaveDump)
         dumpFiat363()
-        tellTale(True)
+        allTellTale(True)
 
     elif project == '2':  # ONIX
         print("call onix")

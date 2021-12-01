@@ -2,14 +2,6 @@ from easygui import *
 import eel
 import CANoe
 from easygui import *
- 
-tuplaEspias = ('BCM_eBonnetSts', 'BCM_eRHatchSts', 'TT_PositionLights_sw', 'BCM_eHighBeamSts', 'BSM_eESCFailSts',
-               'BCM_eIMMOCodeWarningLightSts', 'BSM_eFunctionFailSts', 'ECM_eOilLifeSts', 'TCM_eTransmFailSts',
-               'BCM_eFrontFogLightSts','BCM_eParkBrakeSts', 'ECM_eOilPressureFailSts', 'ORC_eAirBagFailSts', 'TCM_eOilTemperatureSts',
-               'BSM_eABSFailSts', 'ECM_eAlternatorFail','TT_SeatBelt_sw', 'ECM_eDPFSts', 'BCM_eElectricSteeringFailSts', 'ECM_eFpsActuated',
-               'GAU_eWaterTempWarn', 'BCM_eRHTurnSignalSts','BCM_eLHTurnSignalSts', 'BCM_eLowFuelWarningSts', 'BCM_ePAMSystemFault', 'ECM_eGPLGasolineMode',
-               'ECM_eEMSFailSts','ECM_eEMSFailSts', 'BSM_eFailSts', 'DASM_eFCWSts', 'ECM_eFuelWaterPresentSts', 'BCM_eDriverDoorSts',
-               'ECM_eGPLGasolineMode','MAIN_eKeyStat', 'ECM_eGlowPlugLampSts',)
 
 tuplaNameEspia = ('High Beam','Parking', 'Abs', 'Eobd', 'Glow Plug Activation', 'Tpms', 'Esc','Front Fog Light',
                   'Auto High Bean', 'Coolant High Temperatura','Left Turn', 'Righ turn', 'Fuel Reserve',
@@ -19,12 +11,13 @@ tuplaNameEspia = ('High Beam','Parking', 'Abs', 'Eobd', 'Glow Plug Activation', 
 path = r'D:\Simulações\Fiat_363_v1.22\Fiat_363_CANoe_10.cfg'
 
 @eel.expose
-def startCANoeX6H():
+def startCANoe363():
     try:
         global app
         app = CANoe.CANoe()
         app.open_simulation(path)
         app.stop_Measurement()
+        eel.sleep(3)
         app.start_Measurement()
         eel.sleep(10)
 
@@ -70,10 +63,18 @@ def versCluster():
     dataSet2 = app.get_EnvVar('DIAG_eVERDSIdxMC')
 
 def allTellTale(onORoff=0):
+    tuplaEspias = ('BCM_eBonnetSts', 'BCM_eRHatchSts', 'TT_PositionLights_sw', 'BCM_eHighBeamSts', 'BSM_eESCFailSts',
+               'BCM_eIMMOCodeWarningLightSts', 'BSM_eFunctionFailSts', 'ECM_eOilLifeSts', 'TCM_eTransmFailSts',
+               'BCM_eFrontFogLightSts','BCM_eParkBrakeSts', 'ECM_eOilPressureFailSts', 'ORC_eAirBagFailSts', 'TCM_eOilTemperatureSts',
+               'BSM_eABSFailSts', 'ECM_eAlternatorFail','TT_SeatBelt_sw', 'ECM_eDPFSts', 'BCM_eElectricSteeringFailSts', 'ECM_eFpsActuated',
+               'GAU_eWaterTempWarn', 'BCM_eRHTurnSignalSts','BCM_eLHTurnSignalSts', 'BCM_eLowFuelWarningSts', 'BCM_ePAMSystemFault', 'ECM_eGPLGasolineMode',
+               'ECM_eEMSFailSts','ECM_eEMSFailSts', 'BSM_eFailSts', 'DASM_eFCWSts', 'ECM_eFuelWaterPresentSts', 'BCM_eDriverDoorSts',
+               'ECM_eGPLGasolineMode','MAIN_eKeyStat', 'ECM_eGlowPlugLampSts',)
     # all led
     for tupla in tuplaEspias:
+        eel.sleep(2)
         app.set_EnvVar(tupla, onORoff)
-        eel.sleep(1)
+        eel.sleep(2)
         print(tupla)
     eel.sleep(2)
     #relatorio()
