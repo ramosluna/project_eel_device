@@ -1,6 +1,5 @@
 TaskId003 : Not change the '.bsk' and '.txt'
 
-
 Não carrega o '.bsk' e o '.txt'
 
 mudar a funcao 'dumpHtml()' do arquivo dump.py

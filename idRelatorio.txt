@@ -1,9 +1,0 @@
-# le todo os dados
-        lines = f.readlines()
-
-        # tamanho formatado
-        sFORMATADO_DADOS = slice(0, -1)
-
-        # pega o comprimento
-        sizeLinesRead = len(lines[sFORMATADO_DADOS])
-        lines = lines[sFORMATADO_DADOS]

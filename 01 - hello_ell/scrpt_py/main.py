@@ -17,6 +17,7 @@ def openProject(project, nameSaveDump=None):
         openPage()
         #getDump(nameSaveDump)
         dumpFiat363()
+        tellTale()
 
     elif project == '2':  # ONIX
         print("call onix")
