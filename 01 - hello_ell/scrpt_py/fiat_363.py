@@ -69,9 +69,9 @@ def versCluster():
     dataSet1 = app.get_EnvVar('DIAG_eVERDSVerMC')
     dataSet2 = app.get_EnvVar('DIAG_eVERDSIdxMC')
 
-def allTellTale(arrayDeSpias, onORoff=0):
+def allTellTale(onORoff=0):
     # all led
-    for tupla in arrayDeSpias:
+    for tupla in tuplaEspias:
         app.set_EnvVar(tupla, onORoff)
         eel.sleep(1)
         print(tupla)
