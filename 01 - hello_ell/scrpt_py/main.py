@@ -24,16 +24,16 @@ def openProject(project, nameSaveDump=None):
         Vel()
          
 
-    elif project == '2':  # ONIX
+    elif project == '2': # ONIX
         print("call onix")
         openPage()
         #startCANoe()
         send_file_dump_analise(nameSaveDump)
 
-    elif project == '3':  # BR2
+    elif project == '3': # BR2
         print('BR2 not implemented')
 
-    elif project == '4':  # GSB
+    elif project == '4': # GSB
         print('GSB not implemented')
 
     else:

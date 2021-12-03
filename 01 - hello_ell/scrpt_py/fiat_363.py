@@ -15,7 +15,7 @@ tuplaNameEspia = ('High Beam','Parking', 'Abs', 'Eobd', 'Glow Plug Activation', 
                   'Brake System Failure','Steering Fauld','Air Bag Failure', 'LDW'
                   )
 
-path = r'D:\Simulações\Fiat_363_v1.22\Fiat_363_CANoe_10.cfg'
+path = f'D:\Simulações\Fiat_363_v1.22\Fiat_363_CANoe_10.cfg'
 
 @eel.expose
 def startCANoe363():
@@ -60,6 +60,7 @@ def getDump(nameSalveDump):
     saveFinaled = app.get_EnvVar('DIAG_RFDStatusBar')
     msgbox(saveFinaled, 'dump')
 
+
 def versCluster():
     # version cluster
     app.set_EnvVar('DIAG_eVERRead', 1)
@@ -71,6 +72,7 @@ def versCluster():
     dataSet1 = app.get_EnvVar('DIAG_eVERDSVerMC')
     dataSet2 = app.get_EnvVar('DIAG_eVERDSIdxMC')
 
+
 def fullEspia(onORoff):
        # all led
     for tupla in tuplaEspias:
@@ -78,8 +80,9 @@ def fullEspia(onORoff):
         app.set_EnvVar(tupla, onORoff)
              
     #relatorio()
-    print('full espias')
+    msgbox('All espias turn on ?', '363')
     eel.sleep(10)
+
 
 def tellTale(arrayDeSpias):
     eel.sleep(1)
@@ -92,43 +95,36 @@ def tellTale(arrayDeSpias):
         app.set_EnvVar(tupla, 1)
         eel.sleep(1)
         #repeat = boolbox("torned on ?", 'title', ("Yes", "No"),image="GLOW_PLUG.png")
-
+    
     # listaRelatorioPassOrNo.append('Pass') #  add em sequência no array
 
 
 def Tacho():
+    status=[]
+    rpm = ("RPM 0 ?","RPM 1000 ?","RPM 4000 ?","RPM 8000 ?","RPM 0 ?")
+    setValueVarRpm = (0,1000,4000,8000,0)
+
     app.set_EnvVar("MAIN_eKeyStat", 2)
 
-    app.set_EnvVar("GAU_eEngSpd", 0)
-    status = boolbox("RPM 0 ?", 'Tacho', ("Yes", "No"),    image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
-    app.set_EnvVar("GAU_eEngSpd", 1000)
-    status = boolbox("RPM 1000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
-    app.set_EnvVar("GAU_eEngSpd", 4000)
-    status = boolbox("RPM 4000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
-    app.set_EnvVar("GAU_eEngSpd", 8000)
-    status = boolbox("RPM 8000 ?", 'Tacho', ("Yes", "No"), image="01 - hello_ell/picture/Tacho_Tolerance.PNG")
-    app.set_EnvVar("GAU_eEngSpd", 0)
+    for i in range(len(rpm)):
+        app.set_EnvVar("GAU_eEngSpd", setValueVarRpm[i])
+        status.append(boolbox(setValueVarRpm[i],'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/Tacho_Tolerance.PNG"))
     #if status:
         #listaRelatorioPassOrNo.append('Pass') #  add em sequência no array
 
 
 def Vel():
+    status=[]
+    velo = ("Velocidade 0 ?","Velocidade 20 ?","Velocidade 40 ?","Velocidade 60 ?","Velocidade 80 ?","Velocidade 100 ?","Velocidade 120 ?",
+    "Velocidade 220 ?","Velocidade 0 ?")
+    setValueVarVel = (0,20,40,60,80,100,120,220,0)
+
     app.set_EnvVar("MAIN_eKeyStat", 2)
 
-    app.set_EnvVar("GAU_eVehSpd", 0) 
-    status = boolbox("Velocidade 0 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 20) 
-    status = boolbox("Velocidade 20 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 40) 
-    status = boolbox("Velocidade 40 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 60) 
-    status = boolbox("Velocidade 60 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 80) 
-    status = boolbox("Velocidade 80 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 100) 
-    status = boolbox("Velocidade 100 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 120) 
-    status = boolbox("Velocidade 120 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG")
-    app.set_EnvVar("GAU_eVehSpd", 220) 
-    status = boolbox("Velocidade 220 ?", 'Tacho', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG",cancel_choice=[True])
-    app.set_EnvVar("GAU_eVehSpd", 0)
+    for i in range(len(velo)): 
+        app.set_EnvVar("GAU_eVehSpd", setValueVarVel[i]) 
+        status.append(boolbox(velo[i], 'Vel', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG") )
+
+    
+     
+    
