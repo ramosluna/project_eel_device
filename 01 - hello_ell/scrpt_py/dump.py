@@ -75,8 +75,18 @@ def dumpHtml():
 
                 address += 16
 
-        elif nameSalveDump[-3:] == 'bsk':
-            pass
+        elif nameSalveDump[-3:] == 'dsk':
+            address = 0           
+            for x in range(len(lines)):
+                valor = lines[x]
+                transStr = str(valor)
+                if ( transStr[4:5] == ':'): 
+                    _,fil = transStr.split(':') 
+                    filtro = fil.replace(' ','') #elimina todas os espaços    
+                    # Call Javascript function, and pass explicit callback function
+                    eel.js_imprimirHex(address, filtro)
+ 
+                    address += 16     
 
 @eel.expose
 def dataSet():
@@ -225,7 +235,6 @@ def send_file_dump_analise(nameSaveDump):
             # eel.sleep(1)
 
             address += 16
-
 
 def openPage():
     #eel.init("../web/html")
