@@ -102,7 +102,7 @@ def dataSet():
 
     with open(nameSalveDump, 'r') as f:
         lines = f.readlines()
-
+        # if HEX
         if nameSalveDump[-3:] == 'hex':
             # tamanho formatado
             sFORMATADO_DADOS = slice(0, -1)
@@ -159,6 +159,22 @@ def dataSet():
                 address += 16
             # eel.expose()
             # eel.js_imprimirHexSeForDiferente(address, dadosHex)
+
+        # if DSK
+        elif nameSalveDump[-3:] == 'dsk':
+            address = 0           
+            for x in range(len(lines)):
+                valor = lines[x]
+                transStr = str(valor)
+                if ( transStr[4:5] == ':'): 
+                    _,fil = transStr.split(':') 
+                    filtro = fil.replace(' ','') #elimina todas os espaços    
+                    
+                    # Call Javascript function, and pass explicit callback function
+                    eel.expose()
+                    eel.js_imprimirHexSeForDiferente(address, filtro)
+
+                    address += 16  
 
 def dumpFiat363():
     folder_path = r'D:\Simulações\Fiat_363_v1.22'
