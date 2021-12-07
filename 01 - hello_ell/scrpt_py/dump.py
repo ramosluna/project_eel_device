@@ -63,17 +63,25 @@ def dumpHtml():
 
             # pega o comprimento
             sizeLinesRead = len(lines[sFORMATADO_DADOS])
-            lines01 = lines[sFORMATADO_DADOS]
+            lines01 = lines[sFORMATADO_DADOS]         
 
             for cont in range(sizeLinesRead):
-                # formata os dados 32 byte
-                dadostxt = lines01[cont]
-                dadosformatado = dadostxt[9:42]
+                if lines01[cont].find(":") == -1:
+                    dadostxt = lines01[cont]
+                    # Call Javascript function, and pass explicit callback function
+                    eel.js_imprimirHex(address, dadostxt)
 
-                # Call Javascript function, and pass explicit callback function
-                eel.js_imprimirHex(address, dadosformatado)
+                    address += 16
+                    
+                else:
+                    # formata os dados 32 byte
+                    dadostxt = lines01[cont]
+                    dadosformatado = dadostxt[9:42]
 
-                address += 16
+                    # Call Javascript function, and pass explicit callback function
+                    eel.js_imprimirHex(address, dadosformatado)
+
+                    address += 16
 
         elif nameSalveDump[-3:] == 'dsk':
             address = 0           
@@ -90,8 +98,6 @@ def dumpHtml():
 
 @eel.expose
 def dataSet():
-    # Dump
-    print('call dumHtml')
     nameSalveDump = fileopenbox(msg="Select .hex file", default="./hex/*.*", filetypes=["*.hex", "*.bsk", "*.txt"])
     eel.expose()
     eel.js_setPathDataSet(nameSalveDump)
@@ -148,18 +154,22 @@ def dataSet():
             lines01 = lines[sFORMATADO_DADOS]
 
             for cont in range(sizeLinesRead):
-                # formata os dados 32 byte
-                dadostxt = lines01[cont]
-                dadosformatado = dadostxt[9:42]
+                if lines01[cont].find(":") == -1:
+                    dadostxt = lines01[cont]
+                    eel.expose()
+                    eel.js_imprimirHexSeForDiferente(address, dadostxt)
 
-                # Call Javascript function, and pass explicit callback function
-                eel.expose()
-                eel.js_imprimirHexSeForDiferente(address, dadosformatado)
+                    address += 16
+                    
+                else:
+                    # formata os dados 32 byte
+                    dadostxt = lines01[cont]
+                    dadosformatado = dadostxt[9:42]
 
-                address += 16
-            # eel.expose()
-            # eel.js_imprimirHexSeForDiferente(address, dadosHex)
-
+                    eel.expose()
+                    eel.js_imprimirHexSeForDiferente(address, dadosformatado)
+                    address += 16
+                
         # if DSK
         elif nameSalveDump[-3:] == 'dsk':
             address = 0           

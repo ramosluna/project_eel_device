@@ -1,3 +1,6 @@
-teste = ' 03 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n'
-result = teste.replace(' ','')
-print(result)
+test = ':10000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00'
+s = "This be a string"
+if test.find(":") == -1:
+    print("No 'is' here!")
+else:
+    print("Found 'is' in the string.")
