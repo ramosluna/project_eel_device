@@ -291,15 +291,28 @@ function canoe(){
 
 //#region limpar
 function limpar(){
-    console.log("caled clear")
+    var arrayLimpa = 
+    ["ECUSerialNumberDec","ECUSerialNumber","FCA_SW_Number","FCA_SW_NumberDec","FCA_HW_Number","FCA_HW_NumberDec","EcuIdentFiatSparePartNo_number",
+    "EcuIdentFiatSparePartNo_Dec","EcuIdentEcuHWNo_number","EcuIdentEcuHWNo_Dec","ApplDataFingerprint_number",
+    "ApplDataFingerprint_Dec","ApplSWFingerprint_number","ApplSWFingerprint_Dec","BootSWFingerprint_number",
+    "BootSWFingerprint_Dec","DataSet_number","DataSet_index_number","DataSet_Asci_number","DataSet_Asci_index",
+    "kds_number","kds_index","kds_asci_number","kds_asci_index","engY_hex_0","engY_dec_0","engY_hex_1",
+    "engY_dec_1","engY_hex_2","engY_dec_2","engY_hex_3","engY_dec_3","speedY_hex_0","speedY_dec_0","speedY_hex_1",
+    "speedY_dec_1","speedY_hex_2","speedY_dec_2","speedY_hex_3","speedY_dec_3","speedY_hex_4","speedY_dec_4",
+    "bds_number","bds_index","bds_asci_number","bds_asci_index"];
+     
     for(var i=0; i<8288;i++){ // 4112
     //document.getElementById(i).style.backgroundColor = 'white' ;
     document.getElementById(i).style.backgroundColor = '#92a8d1';
     document.getElementById(i).style.color = "black";
     document.getElementById(i).innerHTML= "";
-    document.getElementById('path').innerHTML = 'path Dumps:'
+    document.getElementById('path').innerHTML = 'path Dump:'
     document.getElementById('dSet').innerHTML = 'path DatSet:'
      }
+
+    for(var x=0;x<arrayLimpa.length;x++)
+     document.getElementById(arrayLimpa[x]).value= "";  
+      
 }
 //#endregion
 

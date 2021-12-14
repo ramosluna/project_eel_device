@@ -3,7 +3,9 @@ function auto(){
     var e = document.getElementById("selecao");
     var strUser = e.value;
     var nameSalveDump = prompt("Please enter name to save!");
+    
     if (nameSalveDump != null) {
+        nameSalveDump += '.hex'
         eel.openProject(strUser,nameSalveDump)
     }
   }

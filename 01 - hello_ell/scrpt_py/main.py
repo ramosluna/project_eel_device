@@ -4,7 +4,7 @@ from onix import *
 from dump import *
 from fiat_363 import *
 
-#eel.init("../web/html")
+
 eel.init("01 - hello_ell/web/html")
 
 
@@ -15,13 +15,14 @@ def openProject(project, nameSaveDump=None):
     if project == '1':  # X6H/363/X6S
         #startCANoe363() #fiat
         #runKeyStart()
-        #diaG()
+       # diaG()
         openPage()
         #getDump(nameSaveDump)
         dumpFiat363()
         #fullEspia(1)
         #Tacho()
         #Vel()
+        #closeCANoe()
          
 
     elif project == '2': # ONIX

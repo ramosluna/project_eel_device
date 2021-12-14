@@ -6,15 +6,13 @@ mudar a funcao 'dumpHtml()' do arquivo dump.py
 
 dumpHtml(): 
     .txt -> 'OK'
-
-    .bsk -> 'nOK'   
-
+    .bsk -> 'OK'   
 dataSet(): 
     .txt -> 'OK'
+    .bsk -> 'OK' 
 
-    .bsk -> 'nOK' 
+TaskId004: add telltalle, rpm e vel -> ok
 
-TaskId004: add telltalle, rpm e vel
 
-fiat_363.py/fullEspia(boole) -> OK
+
 

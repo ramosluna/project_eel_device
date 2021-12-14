@@ -22,7 +22,7 @@ def startCANoe363():
     try:
         global app
         app = CANoe.CANoe()
-        app.stop_Measurement()
+        app.stop_Measurement()    
         eel.sleep(3)
         app.open_simulation(path)
         app.stop_Measurement()
@@ -125,6 +125,8 @@ def Vel():
         app.set_EnvVar("GAU_eVehSpd", setValueVarVel[i]) 
         status.append(boolbox(velo[i], 'Vel', ("Yes", "No"),image="01 - hello_ell/picture/SPEEDOMETER_2.PNG") )
 
-    
-     
+def closeCANoe():
+    app.close_simulation()  
+    msgbox('Finished ?', '363') 
+
     
