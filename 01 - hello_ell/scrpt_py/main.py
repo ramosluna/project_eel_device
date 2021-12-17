@@ -8,17 +8,16 @@ from fiat_363 import *
 eel.init("01 - hello_ell/web/html")
 
 
-
 @eel.expose
 def openProject(project, nameSaveDump=None):
     print('open project')
     if project == '1':  # X6H/363/X6S
         #startCANoe363() #fiat
         #runKeyStart()
-       # diaG()
+        #diaG()
         openPage()
         #getDump(nameSaveDump)
-        dumpFiat363()
+        #dumpFiat363()
         #fullEspia(1)
         #Tacho()
         #Vel()

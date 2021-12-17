@@ -83,7 +83,7 @@ def dumpHtml():
 
                     address += 16
 
-        elif nameSalveDump[-3:] == 'dsk':
+        elif nameSalveDump[-3:] == 'dsk' or 'DSK':
             address = 0           
             for x in range(len(lines)):
                 valor = lines[x]
@@ -171,7 +171,7 @@ def dataSet():
                     address += 16
                 
         # if DSK
-        elif nameSalveDump[-3:] == 'dsk':
+        elif nameSalveDump[-3:] == 'dsk' or 'DSK':
             address = 0           
             for x in range(len(lines)):
                 valor = lines[x]

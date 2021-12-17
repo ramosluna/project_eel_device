@@ -50,7 +50,7 @@ def diaG():
     eel.sleep(1)
 
 def getDump(nameSalveDump):
-    nameSalveDump += nameSalveDump + '.hex'
+    app.set_EnvVar('DIAG_RFDFileName','')
     app.set_EnvVar('DIAG_RFDFileName', nameSalveDump)
     eel.sleep(2)
     app.set_EnvVar('DIAG_RFDReadFile', 1)
