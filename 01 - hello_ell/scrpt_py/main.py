@@ -2,6 +2,7 @@ import eel
 from easygui import *
 from onix import *
 from dump import *
+from hyundai_GSB import *
 from fiat_363 import *
 
 
@@ -15,7 +16,8 @@ def openProject(project, nameSaveDump=None):
         #startCANoe363() #fiat
         #runKeyStart()
         #diaG()
-        openPage()
+        #openPage()
+        opencalibrate()
         #getDump(nameSaveDump)
         #dumpFiat363()
         #fullEspia(1)
@@ -23,7 +25,6 @@ def openProject(project, nameSaveDump=None):
         #Vel()
         #closeCANoe()
          
-
     elif project == '2': # ONIX
         print("call onix")
         openPage()
@@ -31,9 +32,15 @@ def openProject(project, nameSaveDump=None):
         send_file_dump_analise(nameSaveDump)
 
     elif project == '3': # BR2
-        print('BR2 not implemented')
-
+       print('BR2 not implemented')
+       
     elif project == '4': # GSB
+        
+        StartCANoe_HB()
+        eel.sleep(2)
+        Hb_Speeddometer_Calibration()
+        eel.sleep(2)
+        Stop_Canoe()
         print('GSB not implemented')
 
     else:

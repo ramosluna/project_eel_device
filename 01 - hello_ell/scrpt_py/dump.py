@@ -20,8 +20,8 @@ def dumpHtml():
 
     with open(nameSalveDump, 'r') as f:
         lines = f.readlines()
-
-        if nameSalveDump[-3:] == 'hex':
+        #if nameSalveDump[-3:] == 'hex':
+        if nameSalveDump.endswith('hex'):
             # tamanho formatado
             sFORMATADO_DADOS = slice(0, -1)
 
@@ -84,7 +84,8 @@ def dumpHtml():
                     address += 16
 
         elif nameSalveDump[-3:] == 'dsk' or 'DSK':
-            address = 0           
+            address = 0 
+
             for x in range(len(lines)):
                 valor = lines[x]
                 transStr = str(valor)
@@ -172,7 +173,8 @@ def dataSet():
                 
         # if DSK
         elif nameSalveDump[-3:] == 'dsk' or 'DSK':
-            address = 0           
+            address = 0          
+
             for x in range(len(lines)):
                 valor = lines[x]
                 transStr = str(valor)
@@ -266,3 +268,6 @@ def openPage():
     #eel.init("../web/html")
     eel.show('dump.html')
     eel.sleep(2)
+
+def opencalibrate():
+    eel.show('calibrate_speed.html',size=(800,500))
